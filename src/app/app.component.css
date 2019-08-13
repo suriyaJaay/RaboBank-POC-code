@@ -1,0 +1,37 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+   position: relative;
+    width: 25%;
+    left: 76.5%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+h5.empty-msg {
+    position: relative;
+    display: inline-block;
+    color: red;
+    font-weight: bold;
+    left: 40%;
+}
+
+.upload-btn {
+    position: relative;
+    display: inline-block;
+    top: 50px;
+}

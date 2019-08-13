@@ -1,0 +1,48 @@
+
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+     
+      <span>Assignment for Cognizant</span>
+      <span class="menu-spacer"></span>
+      
+    </mat-toolbar-row>
+  </mat-toolbar><div class="container">
+<div class="upload-btn">
+<input type="file" accept=".csv" (change)="processCSVFile($event)">
+</div>
+   
+   <div class="example-header">
+      <mat-form-field>
+         <input matInput [disabled]= "temp.length === 0" (keyup)="tableSearch($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+   </div>
+   <div class="example-container mat-elevation-z8">
+   <div *ngIf= "temp.length === 0"><h5 class="empty-msg">Please upload csv file</h5></div>
+   
+   <div *ngIf= "temp.length !== 0">
+   <mat-toolbar color="primary">CSV file data</mat-toolbar>
+   <mat-table [dataSource]="dataSource" matSort>
+         <ng-container matColumnDef="First_name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.First_name}} </mat-cell>
+         </ng-container>
+         <ng-container matColumnDef="Sur_name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Sur Name </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.Sur_name}} </mat-cell>
+         </ng-container>
+         <ng-container matColumnDef="Issue_count">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Issue Count </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.Issue_count}} </mat-cell>
+         </ng-container>
+         <ng-container matColumnDef="Date_of_birth">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Date of Birth </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.Date_of_birth | date:'medium'}} </mat-cell>
+         </ng-container>
+         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+         <mat-row *matRowDef="let row; columns: displayedColumns;">
+         </mat-row>
+      </mat-table>
+   </div>
+      
+   </div>
+</div>
